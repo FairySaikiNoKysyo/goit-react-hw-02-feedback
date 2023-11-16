@@ -1,5 +1,10 @@
-export const Section = props =>{
+import { SectionFeedback, Title } from "./SectionStyled";
+
+export const Section = ({title, children}) => {
     return (
-        <h1></h1>
-    )
-}
+        <SectionFeedback>
+            <Title>{title}</Title>
+            {children}            
+        </SectionFeedback>
+    );
+};
