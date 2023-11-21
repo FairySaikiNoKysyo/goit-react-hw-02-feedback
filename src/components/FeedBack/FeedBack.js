@@ -27,18 +27,19 @@ export class FeedBack extends Component {
     const  total = good + bad + neutral;
     return total;
   };
-  handleClick = evt => {
+  handleClick = option => {
     this.setState(prevState => {
-      const {name} = evt.target;
+      
 
-      return { [name]: prevState[name] + 1 };
+      return { [option]: prevState[option] + 1 };
     });
   };
   render() {
+    const options = Object.keys(this.state);
     return (
       <div>
         <Section title = "Leave me Feedback">
-        <FeedBackOptions options={this.state} onLeaveFeedback={this.handleClick}/>
+        <FeedBackOptions options={options} onLeaveFeedback={this.handleClick}/>
         </Section>
         <Section title = "Statistic">
         {this.countTotalFeedback() > 0 ? <Statistic 
